@@ -1,0 +1,19 @@
+node_modules
+
+build
+/.cache
+/server/build
+/public/build
+.env
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# yarn
+.yarn
+
+# VSCode
+.vscode
+
