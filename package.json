@@ -11,12 +11,10 @@
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
     "dev": "cross-env NODE_ENV=development remix build && concurrently 'npm:dev:*'",
     "start": "cross-env NODE_ENV=production npm run dev:wrangler",
-    "prettier": "prettier \"**/*.{js,jsx,ts,tsx,md}\"",
-    "format": "npm run prettier --write",
-    "format:check": "npm run prettier --check",
-    "eslint": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache",
-    "lint": "npm run eslint . --max-warnings=0",
-    "lint:fix": "npm run eslint . --fix"
+    "format": "prettier \"**/*.{js,jsx,ts,tsx,md}\" --write",
+    "format:check": "prettier \"**/*.{js,jsx,ts,tsx,md}\" --check",
+    "lint": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache . --max-warnings=0",
+    "lint:fix": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache . --fix"
 
   },
   "dependencies": {
