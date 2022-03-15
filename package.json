@@ -9,13 +9,12 @@
     "build": "cross-env NODE_ENV=production remix build",
     "dev:remix": "cross-env NODE_ENV=development remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
-    "dev": "cross-env NODE_ENV=development remix build && concurrently 'npm:dev:*'",
-    "start": "cross-env NODE_ENV=production npm run dev:wrangler",
+    "dev": "cross-env NODE_ENV=development remix build && concurrently 'yarn:dev:*'",
+    "start": "cross-env NODE_ENV=production yarn dev:wrangler",
     "format": "prettier \"**/*.{js,jsx,ts,tsx,md}\" --write",
     "format:check": "prettier \"**/*.{js,jsx,ts,tsx,md}\" --check",
     "lint": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache . --max-warnings=0",
     "lint:fix": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache . --fix"
-
   },
   "dependencies": {
     "@remix-run/cloudflare-pages": "^1.2.3",
@@ -39,5 +38,6 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
