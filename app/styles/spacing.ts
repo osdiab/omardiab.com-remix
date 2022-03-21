@@ -35,7 +35,6 @@ export const spacing = Object.fromEntries(
  * @see {@link https://every-layout.dev/layouts/stack/}
  *
  * @example
- * // (include JSX pragma at top of file if you're using CSS prop)
  * const MyComponent = () => (
  *   <ul css={horizontalStackCss.m}>
  *     <li>Elem 1</li>

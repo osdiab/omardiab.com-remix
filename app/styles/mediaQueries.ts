@@ -13,9 +13,10 @@ export enum MediaSize {
 /**
  * Min sizes for the media size, measured in px
  */
-const mediaSizeMinWidths: {
-  [key in Exclude<MediaSize, MediaSize.PHONE_SMALL>];
-} = {
+const mediaSizeMinWidths: Record<
+  Exclude<MediaSize, MediaSize.PHONE_SMALL>,
+  number
+> = {
   [MediaSize.DESKTOP_LARGE]: 1440,
   [MediaSize.DESKTOP_SMALL]: 1024,
   [MediaSize.TABLET]: 768,
@@ -25,9 +26,10 @@ const mediaSizeMinWidths: {
 const minWidthsAsc = Object.entries(mediaSizeMinWidths).sort(
   ([, sizeAPx], [, sizeBPx]) => sizeAPx - sizeBPx
 ) as [Exclude<MediaSize, MediaSize.PHONE_SMALL>, number][];
-const mediaSizeNextLargest: {
-  [key in Exclude<MediaSize, MediaSize.DESKTOP_LARGE>]: MediaSize;
-} = {
+const mediaSizeNextLargest: Record<
+  Exclude<MediaSize, MediaSize.DESKTOP_LARGE>,
+  Exclude<MediaSize, MediaSize.PHONE_SMALL>
+> = {
   [MediaSize.PHONE_SMALL]: MediaSize.PHONE_MEDIUM,
   ...mapValues(
     omitKeys(mediaSizeMinWidths, [MediaSize.DESKTOP_LARGE]),
@@ -45,15 +47,15 @@ export type MediaQueryConstraint = AtLeastOneKeyPresent<{
   /**
    * Min screen size that should match a given media query, inclusive
    */
-  min: Exclude<MediaSize, "phoneSmall">;
+  min: Exclude<MediaSize, MediaSize.PHONE_SMALL>;
   /**
    * Max screen size that should match a given media query, inclusive
    */
-  max: Exclude<MediaSize, "desktopLarge">;
+  max: Exclude<MediaSize, MediaSize.DESKTOP_LARGE>;
 }>;
 
 function maxWidthForMediaSize(
-  mediaSize: Exclude<MediaSize, "desktopLarge">
+  mediaSize: Exclude<MediaSize, MediaSize.DESKTOP_LARGE>
 ): number {
   return mediaSizeMinWidths[mediaSizeNextLargest[mediaSize]];
 }
