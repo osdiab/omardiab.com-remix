@@ -1,0 +1,11 @@
+name = "omardiab-com"
+
+route = "remix.omardiab.com/*"
+workers_dev = true
+
+[site]
+bucket = "./public"
+entry-point = "."
+
+[build]
+command = "yarn build"

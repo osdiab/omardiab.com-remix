@@ -1,7 +1,3 @@
-/**
- * @type {import('@remix-run/dev').AppConfig}
- */
-
 const path = require("node:path");
 const alias = require("esbuild-plugin-alias");
 
@@ -9,7 +5,7 @@ const alias = require("esbuild-plugin-alias");
  * @type {import('remix-esbuild-override').AppConfig}
  */
 module.exports = {
-  serverBuildTarget: "cloudflare-pages",
+  serverBuildTarget: "cloudflare-workers",
   server: "./server.js",
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: [".*"],

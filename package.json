@@ -5,10 +5,10 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "postinstall": "remix setup cloudflare-pages && remix-esbuild-override",
+    "postinstall": "remix setup cloudflare-workers && remix-esbuild-override",
     "build": "cross-env NODE_ENV=production remix build",
     "dev:remix": "cross-env NODE_ENV=development remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
+    "dev:miniflare": "cross-env NODE_ENV=development miniflare ./build/index.js --watch",
     "dev": "cross-env NODE_ENV=development remix build && concurrently 'yarn:dev:*'",
     "start": "cross-env NODE_ENV=production yarn dev:wrangler",
     "prettier": "prettier \"**/*.{js,jsx,ts,tsx,md}\"",
@@ -16,7 +16,8 @@
     "format:check": "yarn prettier --check",
     "eslint": "TIMING=1 eslint --ext \"js,ts,jsx,tsx\" --cache",
     "lint": "yarn eslint . --max-warnings=0",
-    "lint:fix": "yarn eslint . --fix"
+    "lint:fix": "yarn eslint . --fix",
+    "deploy": "yarn build && doppler run -- wrangler publish"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
