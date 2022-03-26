@@ -377,6 +377,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/kv-asset-handler@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@cloudflare/kv-asset-handler@npm:0.1.3"
+  dependencies:
+    mime: ^2.5.2
+  checksum: fbc23494baed3765f8517ae232be4612bf4bc13b412854a320000b98715020a78b32e4828f74fc80b6d400d2b7e7a833ffa0dd63a7354b94b7b738323c085356
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workers-types@npm:^3.2.0":
   version: 3.4.0
   resolution: "@cloudflare/workers-types@npm:3.4.0"
@@ -814,14 +823,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/cloudflare-pages@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@remix-run/cloudflare-pages@npm:1.2.3"
+"@remix-run/cloudflare-workers@npm:^1.2.3":
+  version: 1.3.3
+  resolution: "@remix-run/cloudflare-workers@npm:1.3.3"
   dependencies:
-    "@remix-run/server-runtime": 1.2.3
+    "@cloudflare/kv-asset-handler": ^0.1.3
+    "@remix-run/cloudflare": 1.3.3
   peerDependencies:
-    "@cloudflare/workers-types": ^3.2.0
-  checksum: 959309c912d24dea7e8702cdc030880248581807612244c112bba3c57088b814a63c077bd00420a647fa28fde4ce59008b93eb4ae22922e4163db02fb5b9135f
+    "@cloudflare/workers-types": ^2.2.2
+  checksum: 1cf4943e668a417d3d8f6c432cd826bc5b22c5f950f1871e69d0593e1d78e341e363c05d6ba132aedc7b971da372a7d8d36932fa73f75d5f87d3b8af74d8fc59
+  languageName: node
+  linkType: hard
+
+"@remix-run/cloudflare@npm:1.3.3":
+  version: 1.3.3
+  resolution: "@remix-run/cloudflare@npm:1.3.3"
+  dependencies:
+    "@cloudflare/kv-asset-handler": ^0.1.3
+    "@remix-run/server-runtime": 1.3.3
+  peerDependencies:
+    "@cloudflare/workers-types": ^2.2.2
+  checksum: 9a21b975ce55083873a02edd3d5c49887e6017dde8828bcd943b92b202828934070151157ed73309535c9a8b91aadba144f29f8876f3d605ae23d230dc614051
   languageName: node
   linkType: hard
 
@@ -911,6 +933,23 @@ __metadata:
     react: ">=16.8"
     react-dom: ">=16.8"
   checksum: 7bb003aa82a9d683644a9ec51d592003ca51b261238d9fd78f2ac9927c687e1ced9fc887211e71bffb8a47d5837ccadb5dfe58ba6eaff455a742f713f816884c
+  languageName: node
+  linkType: hard
+
+"@remix-run/server-runtime@npm:1.3.3":
+  version: 1.3.3
+  resolution: "@remix-run/server-runtime@npm:1.3.3"
+  dependencies:
+    "@types/cookie": ^0.4.0
+    cookie: ^0.4.1
+    jsesc: ^3.0.1
+    react-router-dom: ^6.2.2
+    set-cookie-parser: ^2.4.8
+    source-map: ^0.7.3
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 27c76ea6a441165d38a749d7a90e19dedae345705694de1403e67f96372994bc2ea1cbfe5fdc4beb4d34f94af32ced0dad8047575d6df0ec32e21d573591b6bc
   languageName: node
   linkType: hard
 
@@ -4897,6 +4936,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime@npm:^2.5.2":
+  version: 2.6.0
+  resolution: "mime@npm:2.6.0"
+  bin:
+    mime: cli.js
+  checksum: 1497ba7b9f6960694268a557eae24b743fd2923da46ec392b042469f4b901721ba0adcf8b0d3c2677839d0e243b209d76e5edcbd09cfdeffa2dfb6bb4df4b862
+  languageName: node
+  linkType: hard
+
 "mimic-response@npm:^1.0.0":
   version: 1.0.1
   resolution: "mimic-response@npm:1.0.1"
@@ -4918,7 +4966,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"miniflare@npm:2.3.0":
+"miniflare@npm:2.3.0, miniflare@npm:^2.1.0":
   version: 2.3.0
   resolution: "miniflare@npm:2.3.0"
   dependencies:
@@ -5321,7 +5369,7 @@ __metadata:
     "@emotion/cache": ^11.7.1
     "@emotion/react": ^11.8.2
     "@emotion/server": ^11.4.0
-    "@remix-run/cloudflare-pages": ^1.2.3
+    "@remix-run/cloudflare-workers": ^1.2.3
     "@remix-run/dev": ^1.2.3
     "@remix-run/eslint-config": ^1.2.3
     "@remix-run/react": ^1.2.3
@@ -5331,6 +5379,7 @@ __metadata:
     cross-env: ^7.0.3
     esbuild-plugin-alias: ^0.2.1
     eslint: ^8.9.0
+    miniflare: ^2.1.0
     no-op: ^1.0.3
     prettier: ^2.5.1
     react: ^17.0.2
